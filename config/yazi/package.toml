@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
+
+[[flavor.deps]]
+use = "ficcdaf/ashen:ashen"
+rev = "e0d552f"
+hash = "a48aa4d7140c52cdd14552039b632800"
+
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "4905527"
+hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"

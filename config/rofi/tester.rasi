@@ -1,0 +1,266 @@
+* {
+  active-background: @background;
+  active-foreground: @blue;
+  active-text: rgba ( 124, 184, 187, 100 % );
+  alternate-active-background: @lightbg;
+  alternate-active-foreground: @blue;
+  alternate-active-text: rgba ( 124, 184, 187, 100 % );
+  alternate-normal-background: @lightbg;
+  alternate-normal-foreground: @foreground;
+  alternate-normal-text: rgba ( 220, 220, 204, 100 % );
+  alternate-urgent-background: @lightbg;
+  alternate-urgent-foreground: @red;
+  alternate-urgent-text: rgba ( 220, 163, 163, 100 % );
+  background: rgba ( 56, 56, 56, 75 % );
+  background-color: rgba ( 56, 56, 56, 100 % );
+  base-text: rgba ( 220, 220, 204, 100 % );
+  blue: rgba ( 124, 184, 187, 75 % );
+  border-color: @foreground;
+  foreground: rgba ( 220, 220, 204, 75 % );
+  lightbg: rgba ( 64, 64, 64, 75 % );
+  lightfg: rgba ( 192, 192, 192, 75 % );
+  margin: 0;
+  normal-background: @background;
+  normal-foreground: @foreground;
+  normal-text: rgba ( 220, 220, 204, 100 % );
+  padding: 0;
+  red: rgba ( 220, 163, 163, 75 % );
+  selected-active-background: @blue;
+  selected-active-foreground: @background;
+  selected-active-text: rgba ( 56, 56, 56, 100 % );
+  selected-normal-background: @lightfg;
+  selected-normal-foreground: @lightbg;
+  selected-normal-text: rgba ( 64, 64, 64, 100 % );
+  selected-urgent-background: @red;
+  selected-urgent-foreground: @background;
+  selected-urgent-text: rgba ( 56, 56, 56, 100 % );
+  separatorcolor: @foreground;
+  spacing: 0;
+  urgent-background: @background;
+  urgent-foreground: @red;
+  urgent-text: rgba ( 220, 163, 163, 100 % );
+}
+
+button {
+  background-color: transparent;
+  border: 0 0 0 1px;
+  border-radius: 0;
+  children: [ "textbox-icon" ];
+  cursor: pointer;
+  font: "lucide 12";
+  padding: 0 18px;
+  text-color: @normal-text;
+}
+
+button selected {
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-text;
+}
+
+case-indicator {
+  text-color: @normal-text;
+}
+
+element {
+  background-color: transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  enabled: true;
+  orientation: horizontal;
+  padding: 12px;
+  spacing: 9px;
+}
+
+element alternate.active {
+  background-color: @alternate-active-background;
+  text-color: @alternate-active-text;
+}
+
+element alternate.normal {
+  background-color: transparent;
+  text-color: @alternate-normal-text;
+}
+
+element alternate.urgent {
+  background-color: @alternate-urgent-background;
+  text-color: @alternate-urgent-text;
+}
+
+element normal.active {
+  background-color: @active-background;
+  text-color: @active-text;
+}
+
+element normal.normal {
+  background-color: transparent;
+  text-color: @normal-text;
+}
+
+element normal.urgent {
+  background-color: @urgent-background;
+  text-color: @urgent-text;
+}
+
+element selected.active {
+  background-color: @selected-active-background;
+  text-color: @selected-active-text;
+}
+
+element selected.normal {
+  background-color: @selected-normal-background;
+  text-color: @selected-normal-text;
+}
+
+element selected.urgent {
+  background-color: @selected-urgent-background;
+  text-color: @selected-urgent-text;
+}
+
+element-alternate {
+  background-color: transparent;
+  enabled: false;
+}
+
+element-icon {
+  background-color: transparent;
+  cursor: inherit;
+  size: 48px;
+  text-color: inherit;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+element-text {
+  background-color: transparent;
+  cursor: inherit;
+  highlight: bold #fff;
+  horizontal-align: 0;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+entry {
+  background-color: transparent;
+  cursor: text;
+  enabled: true;
+  expand: true;
+  font: "Inter Variable 12";
+  margin: 12px 0;
+  placeholder: "";
+  text-color: @normal-text;
+}
+
+inputbar {
+  background-color: @background;
+  border: 1px;
+  border-radius: 9px;
+  children: [ "textbox-prompt-colon","entry","mode-switcher" ];
+  enabled: true;
+  margin: 0 3% 10%;
+  orientation: horizontal;
+  spacing: 0;
+  text-color: @normal-text;
+}
+
+listbox {
+  background-color: transparent;
+  border-radius: 12px;
+  children: [ "listview" ];
+  orientation: vertical;
+  padding: 0;
+  spacing: 0;
+}
+
+listview {
+  background-color: @background;
+  border: 2px;
+  border-color: @separatorcolor;
+  border-radius: 12px;
+  columns: 1;
+  cursor: "default";
+  cycle: true;
+  dynamic: true;
+  enabled: true;
+  fixed-columns: true;
+  fixed-height: false;
+  flow: horizontal;
+  layout: vertical;
+  lines: 7;
+  padding: 24px;
+  require-input: true;
+  reverse: false;
+  scrollbar: true;
+  scrollbar-width: 24px;
+  spacing: 12px;
+}
+
+mainbox {
+  background-color: transparent;
+  children: [ "inputbar","listview" ];
+  enabled: true;
+  margin: 0;
+  orientation: vertical;
+}
+
+message {
+  border-color: @separatorcolor;
+}
+
+mode-switcher {
+  background-color: transparent;
+  enabled: true;
+  margin: 0;
+  spacing: 0;
+}
+
+prompt {
+  text-color: @normal-text;
+}
+
+scrollbar {
+  border-radius: 3px;
+  handle-color: @normal-foreground;
+  handle-width: 9px;
+}
+
+sidebar {
+  border-color: @separatorcolor;
+}
+
+textbox {
+  background-color: transparent;
+  horizontal-align: 0.5;
+  text-color: @base-text;
+}
+
+textbox-icon {
+  background-color: transparent;
+  horizontal-align: 0.5;
+}
+
+textbox-prompt-colon {
+  background-color: transparent;
+  enabled: true;
+  expand: false;
+  font: "lucide 15";
+  padding: 12px;
+  str: "";
+  text-color: inherit;
+}
+
+window {
+  anchor: center;
+  background-color: transparent;
+  children: [ "mainbox" ];
+  cursor: "default";
+  enabled: true;
+  fullscreen: false;
+  location: north;
+  padding: 0;
+  transparency: "real";
+  width: 24%;
+  x-offset: 0;
+  y-offset: 20%;
+}

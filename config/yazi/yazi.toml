@@ -1,0 +1,10 @@
+[opener]
+
+edit = [
+  { run = "[ -f \"$1\" ] && nvim \"$1\"", desc = "Edit with Neovim", for = "unix" },
+  { run = "[ -f \"$1\" ] && echo \"$1\" > \"${CHOOSER}\"", desc = "Pick file and quit", for = "unix" },
+]
+
+open = [
+  { run = 'xdg-open "$@"', desc = "Open with system default", for = "unix", block = false, orphan = true },
+]

@@ -1,0 +1,41 @@
+@theme "Paper"
+
+listbox {
+  background-color: transparent;
+  border-radius: 12px;
+  children: [ "listview" ];
+  orientation: vertical;
+  padding: 0;
+  spacing: 0;
+}
+
+listview {
+  background-color: @background;
+  border: 2px;
+  border-color: @separatorcolor;
+  border-radius: 12px;
+  columns: 1;
+  cursor: "default";
+  cycle: true;
+  dynamic: true;
+  enabled: true;
+  fixed-columns: true;
+  fixed-height: false;
+  flow: horizontal;
+  layout: vertical;
+  lines: 7;
+  padding: 24px;
+  require-input: true;
+  reverse: false;
+  scrollbar: true;
+  scrollbar-width: 24px;
+  spacing: 12px;
+}
+
+mainbox {
+  background-color: transparent;
+  children: [ "inputbar","listview" ];
+  enabled: true;
+  margin: 0;
+  orientation: vertical;
+}

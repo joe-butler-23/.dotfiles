@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+on   = "<Enter>"
+run  = [ "open", "quit" ]
+desc = "Open file with default app and quit"
+
+[[mgr.append_keymap]]
+on   = "o"
+run  = "open"
+desc = "Open file with default app and stay"

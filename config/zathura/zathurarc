@@ -1,0 +1,7 @@
+set selection-clipboard clipboard
+set guioptions "shv"
+
+# Synctex
+
+set synctex true
+set synctex-editor-command "nvr --remote-silent +%{line} %{input}"

@@ -1,0 +1,100 @@
+layout: {qmk_keyboard: crkbd/rev4_1/standard, layout_name: LAYOUT_split_3x6_3_ex2}
+layers:
+  L0:
+  - - TAB
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - {h: L3}
+    - {h: L3}
+    - Y
+    - U
+  - - I
+    - O
+    - P
+    - BSPC
+    - ESC
+    - {t: A, h: L4}
+    - {t: S, h: LGUI}
+    - {t: D, h: LCTL}
+    - {t: F, h: LSFT}
+    - G
+  - - {t: L1, h: toggle}
+    - L2
+    - H
+    - {t: J, h: RSFT}
+    - {t: K, h: RCTL}
+    - {t: L, h: RGUI}
+    - {t: ;, h: RALT}
+    - ''''
+    - LSFT
+    - Z
+  - [X, C, V, B, N, M, ',', ., TD(TD SLASH BACKSLASH), ENT]
+  - [L2, L1, ENT, SPC, L1, L2]
+  L1:
+  - ['', '', '', '', '', '', '', '', TD(TD BRACKETS), '1']
+  - ['2', '3', ']', BSPC, '', TD(TD BACKTICK PIPE), TD(TD HASH TILD), TD(TD QUOTES), TD(TD BRACKETS), '']
+  - - {t: L1, h: toggle}
+    - ''
+    - ;
+    - '4'
+    - '5'
+    - '6'
+    - '='
+    - ENT
+    - ''
+    - ''
+  - ['', '', '', '', '`', '7', '8', '9', \, '']
+  - - ''
+    - {type: held}
+    - ''
+    - '='
+    - '0'
+    - TD(TD MINUS UNDERSCORE)
+  L2:
+  - ['', '', '', '', '', '', '', '', TD(TD QUOTES), '!']
+  - ['@', '#', '', '', '', '', '', '', '', '']
+  - - {t: ▽, type: trans}
+    - {type: held}
+    - '~'
+    - $
+    - '%'
+    - ^
+    - ''
+    - ''
+    - ''
+    - ''
+  - ['', '', '', '', '|', '&', '*', (, '', '']
+  - ['', '', '', _, (, '{']
+  L3:
+  - - QK BOOT
+    - UG NEXT
+    - UG TOGG
+    - MUTE
+    - VOLD
+    - VOLU
+    - {type: held}
+    - ''
+    - ''
+    - ''
+  - ['', '', '', '', '', '', '', '', '', '']
+  - ['', '', '', '', '', '', '', '', DT PRNT, DT UP]
+  - [DT DOWN, '', '', '', '', '', '', '', '', '']
+  - ['', '', SPC, ENT, '', '']
+  L4:
+  - ['', '', '', '', '', '', '', '', '', '']
+  - - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - {type: held}
+    - ''
+    - ''
+    - ''
+    - ''
+  - ['', '', LEFT, DOWN, UP, RIGHT, '', '', '', '']
+  - ['', '', '', '', '', '', '', '', '', '']
+  - ['', '', '', '', '', '']
