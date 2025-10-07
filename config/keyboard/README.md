@@ -126,11 +126,12 @@ After making changes to the YAML configuration files in this directory, you need
   - Changed semicolon key from right alt (`RALT`) to left alt (`LALT`) on layer 0
 - **Caps Word Configuration:**
   - Removed caps word activation from F+J mod-tap keys
-  - Added double-tap ESC functionality: `DT(ESC, CAPS_WORD)` - double tap ESC to activate caps word
+  - Added double-tap ESC functionality: `TD(TD_ESC_CAPS_WORD)` - double tap ESC to activate caps word
 - **Visualization Updates:**
   - Updated keymap visualizations (SVG and PNG) to reflect all changes
   - Added pipx installation requirement for keymap-drawer tool
 - **Files Modified:**
+  - `keymap.c`: Updated QMK keymap with all changes, added TD_ESC_CAPS_WORD tap dance
   - `crkbd_joebutler23.yaml`: Updated layer 2, semicolon mod, and ESC key configurations
   - `keymap.yaml`: Updated corresponding configurations
   - `crkbd_keymap.svg` and `crkbd_keymap.png`: Updated visualizations
