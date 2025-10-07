@@ -188,7 +188,7 @@ path.combo {
 <g transform="translate(28, 105)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">
-<tspan x="0" dy="-1.2em" style="font-size: 78%">DT(ESC,</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">CAPS_WORD</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">)</tspan>
+<tspan x="0" dy="-1.2em" style="font-size: 64%">TD(</tspan><tspan x="0" dy="1.2em" style="font-size: 64%">TD_ESC_CAP…</tspan><tspan x="0" dy="1.2em" style="font-size: 64%">)</tspan>
 </text>
 </g>
 <g transform="translate(84, 105)" class="key keypos-15">

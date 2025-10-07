@@ -15,7 +15,7 @@ layers:
     - O
     - P
     - BSPC
-    - DT(ESC, CAPS_WORD)
+    - TD(TD_ESC_CAPS_WORD)
     - {t: A, h: L4}
     - {t: S, h: LGUI}
     - {t: D, h: LCTL}
