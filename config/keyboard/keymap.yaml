@@ -4,7 +4,7 @@ layout:
 layers:
   base:
     - [ Tab,   Q,     W,     E,     R,     T,       Y,     U,     I,     O,     P,     Bksp ]
-    - [ Esc,   LT(4,A), LGUI,  LCtl,  LSft,  G,       H,     RSft,  RCtrl, RGui,  RAlt,  '    ]
+    - [ DT(ESC, CAPS_WORD),   LT(4,A), LGUI,  LCtl,  F,  G,       H,     J,  RCtrl, RGui,  LAlt,  '    ]
     - [ Shift, Z,     X,     C,     V,     B,       N,     M,     ",",     ".",     "TD(Slash)",     Enter ]
     - [       , TG(1), MO(2),                            MO(2), MO(1), Enter, Space ]
     - [                LT(3,NO), LT(3,NO),                MO(1), MO(2) ]
@@ -19,7 +19,7 @@ layers:
   layer2:
     - [ NO,    NO,    NO,    NO,    NO,    NO,      "TD(QUOTES)",     !,     "@",     #,     NO,    NO   ]
     - [ NO,    NO,    NO,    NO,    NO,    NO,      ~,     $,     %,     ^,     NO,    NO   ]
-    - [ NO,    NO,    NO,    NO,    NO,    NO,      |,     &,     *,     (,     NO,    NO   ]
+    - [ NO,    NO,    NO,    NO,    NO,    NO,      |,     &,     *,     +,     NO,    NO   ]
     - [       , TRNS,  NO,                                 _,     (,     {      ]
     - [                NO,    NO,                           NO,    NO             ]
 
