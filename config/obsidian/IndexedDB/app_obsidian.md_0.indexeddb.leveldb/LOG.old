@@ -1,35 +1,3 @@
-2025/10/06-08:02:32.999 900a6 Reusing MANIFEST /home/joebutler/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
-2025/10/06-08:02:32.999 900a6 Recovering log #74
-2025/10/06-08:02:33.004 900a6 Reusing old log /home/joebutler/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000074.log 
-2025/10/06-08:02:36.179 900a7 Level-0 table #80: started
-2025/10/06-08:02:36.203 900a7 Level-0 table #80: 1617830 bytes OK
-2025/10/06-08:02:36.207 900a7 Delete type=0 #74
-2025/10/06-08:03:01.042 900a7 Compacting 1@1 + 1@2 files
-2025/10/06-08:03:01.081 900a7 Generated table #81@1: 5714 keys, 2133114 bytes
-2025/10/06-08:03:01.086 900a7 Generated table #82@1: 480 keys, 258769 bytes
-2025/10/06-08:03:01.086 900a7 Compacted 1@1 + 1@2 files => 2391883 bytes
-2025/10/06-08:03:01.088 900a7 compacted to: files[ 0 0 6 0 0 0 0 ]
-2025/10/06-08:03:01.088 900a7 Delete type=2 #80
-2025/10/06-08:03:01.088 900a7 Delete type=2 #76
-2025/10/06-08:19:13.626 900a7 Level-0 table #84: started
-2025/10/06-08:19:13.643 900a7 Level-0 table #84: 1159215 bytes OK
-2025/10/06-08:19:13.646 900a7 Delete type=0 #79
-2025/10/06-08:19:14.357 900a6 Compacting 1@1 + 2@2 files
-2025/10/06-08:19:14.433 900a6 Generated table #85@1: 6336 keys, 2131617 bytes
-2025/10/06-08:19:14.452 900a6 Generated table #86@1: 563 keys, 518953 bytes
-2025/10/06-08:19:14.452 900a6 Compacted 1@1 + 2@2 files => 2650570 bytes
-2025/10/06-08:19:14.453 900a6 compacted to: files[ 0 0 6 0 0 0 0 ]
-2025/10/06-08:19:14.454 900a6 Delete type=2 #81
-2025/10/06-08:19:14.454 900a6 Delete type=2 #84
-2025/10/06-08:19:14.454 900a6 Delete type=2 #82
-2025/10/06-08:19:25.542 900a7 Level-0 table #88: started
-2025/10/06-08:19:25.549 900a7 Level-0 table #88: 500395 bytes OK
-2025/10/06-08:19:25.551 900a7 Delete type=0 #83
-2025/10/06-08:19:26.887 900a7 Compacting 1@1 + 2@2 files
-2025/10/06-08:19:26.949 900a7 Generated table #89@1: 6685 keys, 2129040 bytes
-2025/10/06-08:19:26.972 900a7 Generated table #90@1: 702 keys, 994148 bytes
-2025/10/06-08:19:26.972 900a7 Compacted 1@1 + 2@2 files => 3123188 bytes
-2025/10/06-08:19:26.973 900a7 compacted to: files[ 0 0 6 0 0 0 0 ]
-2025/10/06-08:19:26.974 900a7 Delete type=2 #85
-2025/10/06-08:19:26.974 900a7 Delete type=2 #88
-2025/10/06-08:19:26.974 900a7 Delete type=2 #86
+2025/10/07-08:31:41.284 34eeb Reusing MANIFEST /home/joebutler/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/07-08:31:41.285 34eeb Recovering log #92
+2025/10/07-08:31:41.323 34eeb Reusing old log /home/joebutler/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000092.log 

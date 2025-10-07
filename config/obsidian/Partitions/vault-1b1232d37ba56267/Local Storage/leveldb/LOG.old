@@ -1,3 +1,2 @@
-2025/10/06-08:02:33.002 900a7 Reusing MANIFEST /home/joebutler/.config/obsidian/Partitions/vault-1b1232d37ba56267/Local Storage/leveldb/MANIFEST-000001
-2025/10/06-08:02:33.002 900a7 Recovering log #3
-2025/10/06-08:02:33.003 900a7 Reusing old log /home/joebutler/.config/obsidian/Partitions/vault-1b1232d37ba56267/Local Storage/leveldb/000003.log 
+2025/10/07-08:31:41.295 34f17 Creating DB /home/joebutler/.config/obsidian/Partitions/vault-1b1232d37ba56267/Local Storage/leveldb since it was missing.
+2025/10/07-08:31:41.303 34f17 Reusing MANIFEST /home/joebutler/.config/obsidian/Partitions/vault-1b1232d37ba56267/Local Storage/leveldb/MANIFEST-000001
