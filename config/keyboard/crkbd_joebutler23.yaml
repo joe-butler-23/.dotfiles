@@ -19,12 +19,12 @@ layers:
     - {t: A, h: L4}
     - {t: S, h: LGUI}
     - {t: D, h: LCTL}
-    - F
+    - {t: F, h: LSFT}
     - G
   - - {t: L1, h: toggle}
     - L2
     - H
-    - J
+    - {t: J, h: RSFT}
     - {t: K, h: RCTL}
     - {t: L, h: RGUI}
     - {t: ;, h: LALT}
