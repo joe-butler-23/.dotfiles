@@ -5,16 +5,16 @@ This directory contains configuration files and documentation related to the `jo
 ## Keymap Source
 
 The primary source file for this keymap is located within your QMK Firmware directory:
-`/home/joebutler/qmk_firmware/keyboards/crkbd/keymaps/joebutler23/keymap.c`
+`~/qmk_firmware/keyboards/crkbd/keymaps/joebutler23/keymap.c`
 
 Configuration and build options are handled by the `crkbd/rev4_1/standard` target.
 
 ## Compilation
 
-To compile this keymap, navigate to your QMK Firmware directory (`/home/joebutler/qmk_firmware`) in the terminal and run the following command:
+To compile this keymap, navigate to your QMK Firmware directory (`~/qmk_firmware`) in the terminal and run the following command:
 
 ```bash
-cd /home/joebutler/qmk_firmware
+cd ~/qmk_firmware
 make clean
 qmk compile -kb crkbd/rev4_1/standard -km joebutler23
 ```
@@ -27,7 +27,7 @@ This command specifies the keyboard (`crkbd/rev4_1/standard`) and your keymap fo
 After successfully compiling the firmware, you can flash it to your keyboard.
 
 1.  Put your Corne keyboard into bootloader mode using the key on layer 3
-2.  Once the keyboard is in bootloader mode, run the following command from your QMK Firmware directory (`/home/joebutler/qmk_firmware`):
+2.  Once the keyboard is in bootloader mode, run the following command from your QMK Firmware directory (`~/qmk_firmware`):
 
 ```bash
 qmk flash -kb crkbd/rev4_1/standard -km joebutler23
@@ -39,7 +39,12 @@ Normally you have to manually mount the folder in Thunar and then the command wi
 
 To generate a visual representation of your keymap, you can use the `keymap-drawer` tool.
 
-1.  **Install `keymap-drawer`:** Follow the installation instructions in the [keymap-drawer repository](https://github.com/caksoylar/keymap-drawer).
+1.  **Install `keymap-drawer`:** Install using pipx (recommended):
+    ```bash
+    pipx install keymap-drawer
+    ```
+    
+    Alternatively, follow the installation instructions in the [keymap-drawer repository](https://github.com/caksoylar/keymap-drawer).
 
 2.  **Run the update script:** After making changes to your keymap, run the provided script to automatically update the visualization:
 
@@ -83,7 +88,53 @@ If you need to make further changes to this keymap or configuration in the futur
 
 Note, any amends should be reflected in updated keymaps in this file.
 
+## Implementing Changes
+
+After making changes to the YAML configuration files in this directory, you need to update the actual QMK keymap source file to implement the changes:
+
+1. **Update the QMK keymap.c file:**
+   ```bash
+   # Navigate to your QMK keymap directory
+   cd ~/qmk_firmware/keyboards/crkbd/keymaps/joebutler23
+   
+   # Edit the keymap.c file to match the changes in the YAML files
+   # The YAML files in this directory serve as the reference for what changes need to be made
+   ```
+
+2. **Compile and test:**
+   ```bash
+   # Compile the updated keymap
+   qmk compile -kb crkbd/rev4_1/standard -km joebutler23
+   
+   # Flash to your keyboard (put keyboard in bootloader mode first)
+   qmk flash -kb crkbd/rev4_1/standard -km joebutler23
+   ```
+
+3. **Update visualizations:**
+   ```bash
+   # Run the visualization update script
+   cd /home/joebutler/.dotfiles/config/keyboard
+   ./update_keymap_visualization.sh
+   ```
+
 ## Changelog
+
+### 2025-10-07
+- **Layer 2 Modifications:**
+  - Changed right thumb key from `(` to `+` for easier access to plus symbol
+- **Home Row Mod Changes:**
+  - Changed semicolon key from right alt (`RALT`) to left alt (`LALT`) on layer 0
+- **Caps Word Configuration:**
+  - Removed caps word activation from F+J mod-tap keys
+  - Added double-tap ESC functionality: `DT(ESC, CAPS_WORD)` - double tap ESC to activate caps word
+- **Visualization Updates:**
+  - Updated keymap visualizations (SVG and PNG) to reflect all changes
+  - Added pipx installation requirement for keymap-drawer tool
+- **Files Modified:**
+  - `crkbd_joebutler23.yaml`: Updated layer 2, semicolon mod, and ESC key configurations
+  - `keymap.yaml`: Updated corresponding configurations
+  - `crkbd_keymap.svg` and `crkbd_keymap.png`: Updated visualizations
+  - `README.md`: Added pipx installation instructions
 
 ### 2025-01-09
 - **Layer 4 Navigation Enhancements:**
