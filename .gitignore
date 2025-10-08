@@ -46,3 +46,8 @@ config/VSCodium/User/globalStorage/*/checkpoints/
 # Large database files
 config/*/User/globalStorage/*.vscdb
 config/*/User/workspaceStorage/*/*.vscdb
+
+# Obsidian cache and temporary files
+config/obsidian/Code Cache/
+config/obsidian/IndexedDB/
+config/obsidian/*.asar
