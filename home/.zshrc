@@ -1,3 +1,10 @@
+
+# API Keys - Stored in 1Password
+# Format: op://vault/item/field
+export ANTHROPIC_API_KEY="op://Personal/Anthropic API Key/password"
+export NOTION_API_KEY="op://Personal/Notion API Key/password"
+export NOTION_DATABASE_ID="op://Personal/Notion Database ID/password"
+
 # ~/.zshrc
 
 # Options from Manjaro configuration
@@ -89,12 +96,9 @@ alias syncdesktop="ansible-playbook -i ~/.ansible/inventory/hosts ~/.ansible/pla
 alias syncpackages="ansible-playbook -i ~/.ansible/hosts.ini .ansible/roles/sync_packages/sync_packages.yml --ask-become-pass"
 alias nvim='nvim --listen /tmp/nvim'
 
-# Editor and API Key
+# Editor
 export EDITOR=nvim
 export VISUAL=nvim
-export ANTHROPIC_API_KEY="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"
-export OPENAI_API_KEY="sk-BzZhq7-j5np5s4HTcEHqdMOFsLX_PN9xOFlkBFEqWoT3BlbkFJbId8q23r0_s06t8mDNJwjpI5jL4bOfrjz89WFEJlwA"
-export TODOIST_API_KEY="daa251668355ad20e91c251048e1d0b0b6cd8e8f"
 
 # Yazi: File manager and directory jump
 function y() {
