@@ -2,39 +2,34 @@
 
 # Script to automatically update the keymap visualization
 # This script should be run after making changes to your keymap.c file
-# CUSTOMIZE THIS FILE based on update_keymap_visualization.sh.template
 
-# Set paths - CUSTOMIZE THESE
-QMK_DIR="$HOME/qmk_firmware"
-KEYMAP_NAME="your_keymap_name"  # Replace with your keymap name
-KEYBOARD="crkbd/rev4_1/standard"  # Replace with your keyboard if different
-DOTFILES_DIR="$HOME/.dotfiles/config/keyboard"
-
-# Derived paths
-KEYMAP_DIR="$QMK_DIR/keyboards/crkbd/keymaps/$KEYMAP_NAME"
+# Set paths
+QMK_DIR="/home/joebutler/qmk_firmware"
+KEYMAP_DIR="$QMK_DIR/keyboards/crkbd/keymaps/joebutler23"
+DOTFILES_DIR="/home/joebutler/.dotfiles/config/keyboard"
 
 # Ensure we're in the QMK directory
 cd "$QMK_DIR" || { echo "Error: Could not change to QMK directory"; exit 1; }
 
 # Compile the keymap
 echo "Compiling keymap..."
-qmk compile -kb "$KEYBOARD" -km "$KEYMAP_NAME"
+qmk compile -kb crkbd/rev4_1/standard -km joebutler23
 
 # Generate YAML from keymap.c
 echo "Generating YAML from keymap.c..."
-qmk c2json "$KEYMAP_DIR/keymap.c" | keymap parse -c 10 -q - > "$KEYMAP_DIR/crkbd_$KEYMAP_NAME.yaml"
+qmk c2json "$KEYMAP_DIR/keymap.c" | keymap parse -c 10 -q - > "$KEYMAP_DIR/crkbd_joebutler23.yaml"
 
 # Generate SVG from YAML
 echo "Generating SVG from YAML..."
-keymap draw "$KEYMAP_DIR/crkbd_$KEYMAP_NAME.yaml" > "$KEYMAP_DIR/crkbd_$KEYMAP_NAME.ortho.svg"
+keymap draw "$KEYMAP_DIR/crkbd_joebutler23.yaml" > "$KEYMAP_DIR/crkbd_joebutler23.ortho.svg"
 
 # Convert SVG to PNG
 echo "Converting SVG to PNG..."
-convert "$KEYMAP_DIR/crkbd_$KEYMAP_NAME.ortho.svg" "$DOTFILES_DIR/crkbd_keymap.png"
+convert "$KEYMAP_DIR/crkbd_joebutler23.ortho.svg" "$DOTFILES_DIR/crkbd_keymap.png"
 
 # Copy the PNG to the dotfiles directory
 echo "Copying PNG to dotfiles directory..."
-cp "$KEYMAP_DIR/crkbd_$KEYMAP_NAME.ortho.svg" "$DOTFILES_DIR/crkbd_keymap.svg"
+cp "$KEYMAP_DIR/crkbd_joebutler23.ortho.svg" "$DOTFILES_DIR/crkbd_keymap.svg"
 
 echo "Keymap visualization updated successfully!"
 echo "PNG image: $DOTFILES_DIR/crkbd_keymap.png"
