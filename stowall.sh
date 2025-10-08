@@ -6,7 +6,6 @@ DOTFILES_DIR="$HOME/.dotfiles"
 cd "$DOTFILES_DIR" || { echo "❌ Failed to change directory to $DOTFILES_DIR"; exit 1; }
 
 # Ensure target directories exist
-mkdir -p "$HOME"
 mkdir -p "$HOME/.config"
 
 echo "🔍 Checking and stowing individual dotfiles..."
