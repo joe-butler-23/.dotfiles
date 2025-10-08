@@ -4,7 +4,7 @@
 # This script should be run after making changes to your keymap.c file
 
 # Set paths
-QMK_DIR="/home/joebutler/qmk_firmware"
+QMK_DIR="$HOME/qmk_firmware"
 KEYMAP_DIR="$QMK_DIR/keyboards/crkbd/keymaps/joebutler23"
 DOTFILES_DIR="/home/joebutler/.dotfiles/config/keyboard"
 
