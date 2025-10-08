@@ -1,10 +1,3 @@
-
-# API Keys - Stored in 1Password
-# Format: op://vault/item/field
-export ANTHROPIC_API_KEY="op://Personal/Anthropic API Key/password"
-export NOTION_API_KEY="op://Personal/Notion API Key/password"
-export NOTION_DATABASE_ID="op://Personal/Notion Database ID/password"
-
 # ~/.zshrc
 
 # Options from Manjaro configuration
@@ -81,10 +74,10 @@ pip() {
     command pip "$@"
 }
 
-# FNM Setup (fast Node version manager)
-export FNM_DIR="$HOME/.local/share/fnm"
-export PATH="$FNM_DIR:$PATH"
-eval "$(fnm env --use-on-cd)"
+# FNM Setup (fast Node version manager) - DISABLED
+# export FNM_DIR="$HOME/.local/share/fnm"
+# export PATH="$FNM_DIR:$PATH"
+# eval "$(fnm env --use-on-cd)"
 
 # Background Load Starship & Zoxide
 eval "$(starship init zsh)"
@@ -97,8 +90,15 @@ alias syncpackages="ansible-playbook -i ~/.ansible/hosts.ini .ansible/roles/sync
 alias nvim='nvim --listen /tmp/nvim'
 
 # Editor
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=mousepad
+export VISUAL=mousepad
+
+# API Keys - Stored in 1Password
+# Format: op://vault/item/field
+export ANTHROPIC_API_KEY="op://APIs/Anthropic API Key/password"
+export OPENAI_API_KEY="op://APIs/OpenAI API Key/password"
+export TODOIST_API_KEY="op://APIs/Todoist API Key/password"
+export GEMINI_API_KEY="op://APIs/Gemini API Key/password"
 
 # Yazi: File manager and directory jump
 function y() {
@@ -145,12 +145,5 @@ ZSH_AUTOSUGGEST_DEFAULT_STRATEGY=(completion history)
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$HOME/go/bin:$PATH
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools/bin"
-export PATH="$HOME/.config/jarvis/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-alias launchapp='cd /home/joebutler/artifact2native-test/myapp && ./artifact2native.sh frontend/src/App.jsx --run'
+export PATH="$HOME/.venv/bin:$PATH"
