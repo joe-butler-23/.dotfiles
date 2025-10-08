@@ -6,7 +6,7 @@
 # Set paths
 QMK_DIR="$HOME/qmk_firmware"
 KEYMAP_DIR="$QMK_DIR/keyboards/crkbd/keymaps/joebutler23"
-DOTFILES_DIR="/home/joebutler/.dotfiles/config/keyboard"
+DOTFILES_DIR="$HOME/.dotfiles/config/keyboard"
 
 # Ensure we're in the QMK directory
 cd "$QMK_DIR" || { echo "Error: Could not change to QMK directory"; exit 1; }
