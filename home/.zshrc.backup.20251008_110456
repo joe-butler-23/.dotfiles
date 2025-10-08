@@ -1,6 +1,6 @@
 # ~/.zshrc
 
-# Options
+# Options from Manjaro configuration
 setopt correct
 setopt extendedglob
 setopt nocaseglob
@@ -73,22 +73,28 @@ pip() {
     _lazy_load_python
     command pip "$@"
 }
+
+# FNM Setup (fast Node version manager)
+export FNM_DIR="$HOME/.local/share/fnm"
+export PATH="$FNM_DIR:$PATH"
+eval "$(fnm env --use-on-cd)"
+
 # Background Load Starship & Zoxide
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # Aliases
+alias stowall="$HOME/.dotfiles/stowall.sh"
+alias syncdesktop="ansible-playbook -i ~/.ansible/inventory/hosts ~/.ansible/playbooks/sync_desktop.yml --ask-become-pass"
+alias syncpackages="ansible-playbook -i ~/.ansible/hosts.ini .ansible/roles/sync_packages/sync_packages.yml --ask-become-pass"
 alias nvim='nvim --listen /tmp/nvim'
 
-# Editor
-export EDITOR=mousepad
-export VISUAL=mousepad
-
-# API Keys: formatis op://vault/item/field
-export ANTHROPIC_API_KEY="op://APIs/Anthropic API Key/password"
-export OPENAI_API_KEY="op://APIs/OpenAI API Key/password"
-export TODOIST_API_KEY="op://APIs/Todoist API Key/password"
-export GEMINI_API_KEY="op://APIs/Gemini API Key/password"
+# Editor and API Key
+export EDITOR=nvim
+export VISUAL=nvim
+export ANTHROPIC_API_KEY="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"
+export OPENAI_API_KEY="sk-BzZhq7-j5np5s4HTcEHqdMOFsLX_PN9xOFlkBFEqWoT3BlbkFJbId8q23r0_s06t8mDNJwjpI5jL4bOfrjz89WFEJlwA"
+export TODOIST_API_KEY="daa251668355ad20e91c251048e1d0b0b6cd8e8f"
 
 # Yazi: File manager and directory jump
 function y() {
@@ -135,5 +141,12 @@ ZSH_AUTOSUGGEST_DEFAULT_STRATEGY=(completion history)
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$HOME/go/bin:$PATH
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools/bin"
+export PATH="$HOME/.config/jarvis/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.venv/bin:$PATH"
+alias launchapp='cd /home/joebutler/artifact2native-test/myapp && ./artifact2native.sh frontend/src/App.jsx --run'

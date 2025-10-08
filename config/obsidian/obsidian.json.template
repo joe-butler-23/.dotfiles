@@ -1,0 +1,10 @@
+{
+  "vaults": {
+    "vault_id": {
+      "path": "$HOME/.local/share/Cryptomator/mnt/enc_vault/Obsidian_Vault",
+      "ts": 1759327181209,
+      "open": true
+    }
+  },
+  "insider": true
+}

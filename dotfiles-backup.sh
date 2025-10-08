@@ -4,8 +4,8 @@
 # This script automatically commits and pushes changes to GitHub
 
 # Set the dotfiles directory
-DOTFILES_DIR="/home/joebutler/.dotfiles"
-LOG_FILE="/home/joebutler/.dotfiles/backup.log"
+DOTFILES_DIR="$HOME/.dotfiles"
+LOG_FILE="$HOME/.dotfiles/backup.log"
 
 # Function to log messages
 log_message() {

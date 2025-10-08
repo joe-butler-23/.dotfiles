@@ -54,3 +54,12 @@ config/obsidian/*.asar
 
 # Neovim plugins and submodules
 config/nvim/pack/github/start/
+
+# User-specific configuration files (templates provided)
+config/keyboard/update_keymap_visualization.sh
+config/obsidian/obsidian.json
+
+# Generated files and backups
+backup.log
+*.png
+*.svg

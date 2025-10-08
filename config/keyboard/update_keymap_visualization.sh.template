@@ -2,7 +2,7 @@
 
 # Script to automatically update the keymap visualization
 # This script should be run after making changes to your keymap.c file
-# CUSTOMIZE THIS FILE based on update_keymap_visualization.sh.template
+# Copy this template to update_keymap_visualization.sh and customize the variables below
 
 # Set paths - CUSTOMIZE THESE
 QMK_DIR="$HOME/qmk_firmware"
