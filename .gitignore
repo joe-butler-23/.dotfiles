@@ -51,3 +51,6 @@ config/*/User/workspaceStorage/*/*.vscdb
 config/obsidian/Code Cache/
 config/obsidian/IndexedDB/
 config/obsidian/*.asar
+
+# Neovim plugins and submodules
+config/nvim/pack/github/start/
