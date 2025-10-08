@@ -1,18 +1,3 @@
-# VSCodium/Cursor cache and temporary files
-config/VSCodium/Cache/
-config/VSCodium/Backups/
-config/VSCodium/Service\ Worker/
-config/VSCodium/WebStorage/
-config/VSCodium/logs/
-config/VSCodium/.org.chromium.Chromium.*
-
-# VSCode OSS cache and temporary files
-home/.vscode-oss/extensions/
-home/.vscode-oss/Cache/
-home/.vscode-oss/Service\ Worker/
-home/.vscode-oss/WebStorage/
-home/.vscode-oss/logs/
-
 # General cache and temporary directories
 **/Cache/
 **/Cache_Data/
@@ -27,7 +12,6 @@ Thumbs.db
 *.temp
 
 # Editor-specific
-.vscode/
 .idea/
 *.swp
 *.swo
@@ -36,16 +20,6 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
-
-# User history and global storage checkpoints
-config/Cursor/User/History/
-config/VSCodium/User/History/
-config/Cursor/User/globalStorage/*/checkpoints/
-config/VSCodium/User/globalStorage/*/checkpoints/
-
-# Large database files
-config/*/User/globalStorage/*.vscdb
-config/*/User/workspaceStorage/*/*.vscdb
 
 # Obsidian cache and temporary files
 config/obsidian/Code Cache/
