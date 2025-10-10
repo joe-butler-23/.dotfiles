@@ -137,3 +137,6 @@ export PATH=$HOME/go/bin:$PATH
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.venv/bin:$PATH"
+
+# opencode
+export PATH=/home/joebutler/.opencode/bin:$PATH
