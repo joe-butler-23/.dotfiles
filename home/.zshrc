@@ -26,16 +26,16 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Enable additional plugins
-if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-if [[ -e /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-fi
-if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+# Download Znap, if it's not there yet.
+[[ -r ~/Repos/znap/znap.zsh ]] || \
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh  # Start Znap
+
+# Enable additional plugins with znap source
+znap source zsh-users/zsh-syntax-highlighting
+znap source zsh-users/zsh-history-substring-search
+znap source zsh-users/zsh-autosuggestions
 
 # Disable Powerline wide characters
 HAS_WIDECHARS="false"
@@ -44,40 +44,54 @@ HAS_WIDECHARS="false"
 export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:/usr/bin/vendor_perl:$PATH"
 
 # Conda Lazy Load
-unalias conda 2>/dev/null
-_lazy_load_conda() {
-    unset -f conda
-    export PATH="$HOME/anaconda3/bin:$PATH"
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
-    fi
-}
-conda() {
-    _lazy_load_conda
-    conda "$@"
-}
+# unalias conda 2>/dev/null
+# _lazy_load_conda() {
+#     unset -f conda
+#     export PATH="$HOME/anaconda3/bin:$PATH"
+#     if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "$HOME/anaconda3/etc/profile.d/conda.sh"
+#     fi
+# }
+# conda() {
+#     _lazy_load_conda
+#     conda "$@"
+# }
 
 # Python Lazy Load
-unalias python pip 2>/dev/null
-_lazy_load_python() {
-    unset -f python pip
-    if [[ -f "$HOME/anaconda3/bin/python" ]]; then
-        export PATH="$HOME/anaconda3/bin:$PATH"
-    fi
-}
-python() {
-    _lazy_load_python
-    command python "$@"
-}
-pip() {
-    _lazy_load_python
-    command pip "$@"
-}
-# Background Load Starship & Zoxide
+# unalias python pip 2>/dev/null
+# _lazy_load_python() {
+#     unset -f python pip
+#     if [[ -f "$HOME/anaconda3/bin/python" ]]; then
+#         export PATH="$HOME/anaconda3/bin:$PATH"
+#     fi
+# }
+# python() {
+#     _lazy_load_python
+#     command python "$@"
+# }
+# pip() {
+#     _lazy_load_python
+#     command pip "$@"
+# }
+# Background Load Starship
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+
+# Zoxide Lazy Load
+unalias zoxide 2>/dev/null # Unalias zoxide if it's an alias
+_lazy_load_zoxide() {
+    unset -f zoxide # Unset the function once loaded
+    eval "$(zoxide init zsh)"
+}
+zoxide() { # Assuming 'zoxide' is the primary command
+    _lazy_load_zoxide
+    command zoxide "$@"
+}
+
+export KITTY_LISTEN_ON="unix:/tmp/kitty"
 
 # Aliases
+alias k="kitty @ launch --type=os-window"
+
 alias nvim='nvim --listen /tmp/nvim'
 
 # Editor
@@ -136,7 +150,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$HOME/go/bin:$PATH
 
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.venv/bin:$PATH"
+# export PATH="$HOME/.venv/bin:$PATH"
 
 # opencode
 export PATH=/home/joebutler/.opencode/bin:$PATH
