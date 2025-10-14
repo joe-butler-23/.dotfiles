@@ -14,10 +14,10 @@ monitor= eDP-1, preferred, auto, 1
 # See https://wiki.hyprland.org/Configuring/Keywords/
 
 # Set programs that you use
-$terminal = app2unit kitty --single-instance
-$menu = rofi -show drun -run-command "app2unit -- {cmd}"
-$browser = app2unit brave
-$fileManager = app2unit kitty --class yazi -e sh -c 'TMPFILE=$(mktemp) && yazi --chooser-file="$TMPFILE" && [ -s "$TMPFILE" ] && xdg-open "$(cat "$TMPFILE")" && rm -f "$TMPFILE"'
+$terminal = kitty --single-instance
+$menu = rofi -show drun -matching regex -no-tokenize -no-history -drun-match-fields 'name' -drun-display-format '{name}'
+$browser = brave
+$fileManager = kitty --class yazi -e sh -c 'TMPFILE=$(mktemp) && yazi --chooser-file="$TMPFILE" && [ -s "$TMPFILE" ] && xdg-open "$(cat "$TMPFILE")" && rm -f "$TMPFILE"'
 
 #################
 ### AUTOSTART ###
@@ -30,13 +30,13 @@ $fileManager = app2unit kitty --class yazi -e sh -c 'TMPFILE=$(mktemp) && yazi -
 # exec-once = nm-applet &
 # exec-once = waybar & hyprpaper & firefox
 
-exec-once = app2unit waybar
-exec-once = app2unit swaync & app2unit hypridle & app2unit hyprpaper
+exec-once = waybar
+exec-once = swaync & hypridle & hyprpaper
 exec-once = hyprctl dispatch dpms on
-exec-once = app2unit nm-applet
-exec-once = app2unit blueman-applet
-exec-once = sleep 2 && app2unit kanshi &
-exec-once = app2unit kitty --listen-on unix:/tmp/kitty --detach
+exec-once = nm-applet
+exec-once = blueman-applet
+exec-once = sleep 2 && kanshi &
+exec-once = kitty --listen-on unix:/tmp/kitty --detach
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -210,7 +210,7 @@ bindr =$mainMod, SUPER_L, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, U, togglesplit, # dwindle
 bind = $mainMod, B, exec, $browser
-bind = $mainMod, Y, exec, app2unit hyprshot -m region --clipboard-only
+bind = $mainMod, Y, exec, hyprshot -m region --clipboard-only
 bind = $mainMod, SPACE, exec, /home/joebutler/.cargo/bin/wlr-which-key
 # bind = $mainMod, SHIFT, x, exec, hyprlock
 
@@ -282,7 +282,7 @@ bindl = , XF86AudioPlay, exec, playerctl play-pause
 bindl = , XF86AudioPrev, exec, playerctl previous
 
 # fzf for file finder
-bind = $mainMod,F,exec, app2unit kitty --class filepicker -e fzf_file_launcher.sh
+bind = $mainMod,F,exec, kitty --class filepicker -e fzf_file_launcher.sh
 
 
 windowrulev2 = float, class:filepicker
@@ -291,14 +291,14 @@ windowrulev2 = size 70% 40%, class:filepicker
 windowrulev2 = stayfocused, class:filepicker
 
 # Quick add for obsidian via rofi
-bind = $mainMod SHIFT, SPACE, exec, app2unit $HOME/bin/obsidian_capture.sh
+bind = $mainMod SHIFT, SPACE, exec,$HOME/bin/obsidian_capture.sh
 
 # Floating rule for bluetooth manager
 windowrulev2 = float, persistentsize, class:blueman-manager
 
 # Neovim shortcut
 # Ctrl + Alt + V to paste clipboard into Neovim
-bind = CTRL ALT, M, exec, app2unit ~/bin/clip-to-nvim.sh
+bind = CTRL ALT, M, exec, ~/bin/clip-to-nvim.sh
 
 ##############################
 ### WINDOWS AND WORKSPACES ###
