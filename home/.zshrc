@@ -156,3 +156,4 @@ export PATH="$HOME/bin:$PATH"
 export PATH=/home/joebutler/.opencode/bin:$PATH
 
 . "$HOME/.local/share/../bin/env"
+export PATH="$HOME/.local/bin:$PATH"
