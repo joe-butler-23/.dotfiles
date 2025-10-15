@@ -13,6 +13,7 @@ setopt histignorealldups
 setopt autocd
 setopt inc_append_history
 setopt histignorespace
+setopt interactivecomments
 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
