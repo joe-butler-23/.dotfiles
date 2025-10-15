@@ -26,6 +26,9 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
+STARSHIP_CONFIG=${HOME}/.config/starship.toml
+eval "$(starship init zsh)"
+
 # Download Znap, if it's not there yet.
 [[ -r ~/Repos/znap/znap.zsh ]] || \
     git clone --depth 1 -- \
