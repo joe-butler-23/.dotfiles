@@ -159,12 +159,6 @@ export PATH="$HOME/bin:$PATH"
 # opencode
 export PATH=/home/joebutler/.opencode/bin:$PATH
 
-. "$HOME/.local/share/../bin/env"
-export PATH="$HOME/.local/bin:$PATH"
-if uwsm check may-start; then
-    exec uwsm start hyprland-uwsm.desktop
-fi
-
 # GNOME Keyring integration for UWSM
 if [ -n "$DESKTOP_SESSION" ]; then
     eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
