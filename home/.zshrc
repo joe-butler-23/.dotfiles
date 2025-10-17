@@ -7,6 +7,13 @@ setopt correct extendedglob nocaseglob rcexpandparam nocheckjobs \
        numericglobsort nobeep appendhistory histignorealldups \
        autocd inc_append_history histignorespace interactivecomments
 
+# op inject settings
+if command -v op >/dev/null 2>&1 && [ -S "/run/user/$UID/1password/agent.sock" ]; then
+  if timeout 1s op account list >/dev/null 2>&1; then
+    eval "$(op inject --in-file "$HOME/.dotfiles/secrets.zsh")"
+  fi
+fi
+
 ############################
 # Prompt
 ############################
