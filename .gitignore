@@ -33,3 +33,6 @@ config/nvim/pack/github/start/
 backup.log
 *.png
 *.svg
+
+# Espanso personal configuration
+config/espanso/default.yml
