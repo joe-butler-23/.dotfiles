@@ -163,4 +163,4 @@ precmd() {
   # Restore normal stdout/stderr
   exec > /dev/tty
   exec 2>&1
-}
+}[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
