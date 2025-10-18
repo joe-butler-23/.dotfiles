@@ -93,7 +93,7 @@ y() {
 # Copy last terminal output
 ############################################
 copy_last_output() {
-  kitten @ get-text --extent=last_non_empty_output | wl-copy > /dev/null 2>&1
+  /home/joebutler/bin/zsh-copy-last-output.sh
 }
 zle -N copy_last_output
 bindkey '^ ' copy_last_output
@@ -138,3 +138,29 @@ if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ] || [ -f "$HOME/miniconda3/etc
   activate() { _lazy_conda_bootstrap; command activate "$@"; }
 fi
 
+#############
+# prexc/precmd
+#############
+
+# --- last-output tracking setup ---
+LOG="$HOME/.cache/zsh-last-output.log"
+ZSH_LAST_MARK_START="<<<ZSH-OUT-START>>>"
+ZSH_LAST_MARK_END="<<<ZSH-OUT-END>>>"
+
+mkdir -p "$HOME/.cache"
+: >| "$LOG"
+
+# Mark before and after every command
+preexec() {
+  print -r -- "$ZSH_LAST_MARK_START $(date +%s) $PWD $1" >> "$LOG"
+  # Redirect stdout and stderr to log file while preserving terminal output
+  exec > >(tee -a "$LOG")
+  exec 2>&1
+}
+
+precmd() {
+  print -r -- "$ZSH_LAST_MARK_END $(date +%s)" >> "$LOG"
+  # Restore normal stdout/stderr
+  exec > /dev/tty
+  exec 2>&1
+}
