@@ -7,21 +7,23 @@ setopt correct extendedglob nocaseglob rcexpandparam nocheckjobs \
        numericglobsort nobeep appendhistory histignorealldups \
        autocd inc_append_history histignorespace interactivecomments
 
-# op inject settings
+####################
+# 1Password Injection
+####################
 if command -v op >/dev/null 2>&1 && [ -S "/run/user/$UID/1password/agent.sock" ]; then
   if timeout 1s op account list >/dev/null 2>&1; then
     eval "$(op inject --in-file "$HOME/.dotfiles/secrets.zsh")"
   fi
 fi
 
-############################
+####################
 # Prompt
-############################
+####################
 eval "$(starship init zsh)"
 
-#####################################
+####################
 # Plugins
-#####################################
+####################
 ZSH_AUTOSUGGEST_DEFAULT_STRATEGY=(completion history)
 
 fpath=(/usr/share/zsh/plugins/zsh-history-substring-search $fpath)
@@ -31,9 +33,9 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-################################
+####################
 # Completion
-################################
+####################
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' rehash true
@@ -57,15 +59,15 @@ _lazy_compinit() {
 zle -N _lazy_compinit
 bindkey '^I' _lazy_compinit
 
-########################
+####################
 # Utilities & Variables
-########################
+####################
 # zoxide
 eval "$(zoxide init zsh)"
 
-################
+####################
 # Aliases
-################
+####################
 alias k="kitty @ launch --type=os-window"
 alias nvim='nvim --listen /tmp/nvim'
 
@@ -139,10 +141,8 @@ if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ] || [ -f "$HOME/miniconda3/etc
 fi
 
 #############
-# prexc/precmd
+# preexec/precmd
 #############
-
-# --- last-output tracking setup ---
 LOG="$HOME/.cache/zsh-last-output.log"
 ZSH_LAST_MARK_START="<<<ZSH-OUT-START>>>"
 ZSH_LAST_MARK_END="<<<ZSH-OUT-END>>>"
@@ -150,17 +150,14 @@ ZSH_LAST_MARK_END="<<<ZSH-OUT-END>>>"
 mkdir -p "$HOME/.cache"
 : >| "$LOG"
 
-# Mark before and after every command
 preexec() {
   print -r -- "$ZSH_LAST_MARK_START $(date +%s) $PWD $1" >> "$LOG"
-  # Redirect stdout and stderr to log file while preserving terminal output
   exec > >(tee -a "$LOG")
   exec 2>&1
 }
 
 precmd() {
   print -r -- "$ZSH_LAST_MARK_END $(date +%s)" >> "$LOG"
-  # Restore normal stdout/stderr
   exec > /dev/tty
   exec 2>&1
-}[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
