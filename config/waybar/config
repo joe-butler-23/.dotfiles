@@ -22,7 +22,7 @@
      //   "power-profiles-daemon",
      //   "cpu",
      //   "memory",
-     //   "temperature",
+        "temperature",
         "backlight",
         "battery",
         "clock",
