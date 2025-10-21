@@ -94,15 +94,6 @@ y() {
   rm -f -- "$tmp_cwd" "$tmp_pick"
 }
 
-############################################
-# Copy last terminal output
-############################################
-copy_last_output() {
-  /home/joebutler/bin/zsh-copy-last-output.sh
-}
-zle -N copy_last_output
-bindkey '^ ' copy_last_output
-
 #############
 # Key binds
 #############
@@ -142,3 +133,47 @@ if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ] || [ -f "$HOME/miniconda3/etc
   conda()    { _lazy_conda_bootstrap; command conda "$@"; }
   activate() { _lazy_conda_bootstrap; command activate "$@"; }
 fi
+
+############################################
+# Copy last terminal output
+############################################
+# Clipboard helper (Wayland/X11/mac/OSC52 fallback)
+to_clipboard() {
+  if command -v wl-copy >/dev/null 2>&1; then wl-copy -n
+  elif command -v xclip >/dev/null 2>&1; then xclip -selection clipboard
+  elif command -v pbcopy >/dev/null 2>&1; then pbcopy
+  else
+    local data
+    data=$(base64 -w0 2>/dev/null || base64 | tr -d '\n')
+    printf '\033]52;c;%s\007' "$data"
+  fi
+}
+
+# Remember last command exactly as it will be run
+preexec() { LAST_CMD="$ZSH_COMMAND"; }
+
+# Re-run last command, mirror to screen, copy full output
+copy_last_output() {
+  if [ -z "$LAST_CMD" ]; then
+    zle -M "No previous command"
+    return 1
+  fi
+
+  # Optional: refuse obviously risky commands (uncomment to enable)
+  # case "$LAST_CMD" in
+  #   rm\ *|mv\ *|cp\ *|*:>|*>>*|git\ push*|kubectl\ apply*|curl\ *-X\ POST* )
+  #     zle -M "Refusing to re-run risky command"
+  #     return 1 ;;
+  # esac
+
+  local tmp status
+  tmp=$(mktemp) || return 1
+  { eval -- "$LAST_CMD" } > >(tee "$tmp") 2> >(tee -a "$tmp" >&2)
+  status=$?
+  to_clipboard < "$tmp"
+  rm -f -- "$tmp"
+  return $status
+}
+
+zle -N copy_last_output
+bindkey '^[c' copy_last_output
