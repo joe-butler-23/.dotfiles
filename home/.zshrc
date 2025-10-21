@@ -7,6 +7,8 @@ setopt correct extendedglob nocaseglob rcexpandparam nocheckjobs \
        numericglobsort nobeep appendhistory histignorealldups \
        autocd inc_append_history histignorespace interactivecomments
 
+export TERM=xterm-256color
+export COLORTERM=truecolor
 ####################
 # 1Password Injection
 ####################
