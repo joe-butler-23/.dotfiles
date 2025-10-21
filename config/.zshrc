@@ -1,4 +1,4 @@
-# ~/.zshrc
+# ~/.zshrc (simplified, no exec/precmd/preexec)
 
 ####################
 # Options & History
