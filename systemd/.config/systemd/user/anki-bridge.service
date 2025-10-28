@@ -1,0 +1,11 @@
+[Unit]
+Description=Anki Bridge Service
+
+[Service]
+ExecStart=/usr/bin/python3 /home/joebutler/bin/anki-bridge.py
+Restart=on-failure
+WorkingDirectory=/home/joebutler/bin
+
+[Install]
+WantedBy=default.target
+

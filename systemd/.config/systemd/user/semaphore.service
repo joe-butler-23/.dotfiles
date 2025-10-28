@@ -1,0 +1,13 @@
+[Unit]
+Description=Semaphore web UI server
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/semaphore server --config /home/joebutler/config.json
+WorkingDirectory=%h/.local/share/semaphore
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

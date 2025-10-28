@@ -1,0 +1,17 @@
+[Unit]
+Description=Study Focus Application Monitor
+PartOf=study-focus-block.target
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/home/joebutler/bin/study-focus/monitor-wrapper.sh
+ExecStop=/bin/kill -9 $MAINPID
+TimeoutStartSec=5
+TimeoutStopSec=3
+
+[Install]
+WantedBy=study-focus-block.target

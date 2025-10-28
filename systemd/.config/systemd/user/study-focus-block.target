@@ -1,0 +1,4 @@
+[Unit]
+Description=Study Focus Application Blocker
+Documentation=man:systemd.special(7)
+StopWhenUnneeded=yes

@@ -1,0 +1,16 @@
+[Unit]
+Description=MyTool with API keys from 1Password (ephemeral env)
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/op account list >/dev/null 2>&1
+Environment=OP_ITEMS_FILE=%h/.config/op/mytool.items
+ExecStartPre=%h/.local/lib/op-env-prep %h/.config/op/mytool.items %t/op.env
+EnvironmentFile=%t/op.env
+ExecStart=/usr/bin/sleep 600
+Restart=on-failure
+LogRateLimitIntervalSec=0
+LogLevelMax=info
+
+[Install]
+WantedBy=default.target
