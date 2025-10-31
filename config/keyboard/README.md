@@ -50,7 +50,6 @@ config/keyboard/
 ├── crkbd_keymap.png      # current keyboard visualization
 ├── crkbd_keymap.svg      # SVG version of visualization
 └── backups/              # backups directory
-    └── keymap_c_YYYYMMDD_HHMMSS.backup
 ```
 
 ## Recovery
