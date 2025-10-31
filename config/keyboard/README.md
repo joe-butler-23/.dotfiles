@@ -4,31 +4,25 @@ This directory contains a custom keymap for a Corne keyboard (crkbd), rev4.1 sta
 
 ### Making Changes
 
-1. **Edit your keymap**: Edit `config/keyboard/corne/keymap.c`
-2. **Run the update script**: 
-   ```bash
-   cd config/keyboard
-   ./keyboard-update.sh
-   ```
+1. Edit relevant keymaps files, e.g. `config/keyboard/corne/keymap.c`
+2. Run update script: `cd config/keyboard` then`./keyboard-update.sh`
 
-The script handles:
+The script:
 - Compiles keymap
 - Waits for keyboard to be put in bootloader mode
 - Flashes firmware
 - Updates visualizations automatically
 - Creates a backup of previous keymap
 
-## Current Keymap Layout
-
-![Corne Keyboard Layout](crkbd_keymap.png)
-
-## Keymap Source Files
-
 The relevant keymap source files are:
 
 - `config/keyboard/corne/keymap.c` - Main keymap definitions
 - `config/keyboard/corne/config.h` - Header configuration
 - `config/keyboard/corne/rules.mk` - Build options
+
+## Current Keymap Layout
+
+![Corne Keyboard Layout](crkbd_keymap.png)
 
 ## Requirements
 
